@@ -38,7 +38,7 @@ plt.show()
 
 # Visualising the Regression results (for higher resolution and smoother curve)
 X_grid = np.arange(min(X), max(X), 0.1)
-X_grid = X_grid.reshape((len(X_grid), 1))
+X_grid = X_grid.reshape((len(X_grid), 1)) # because x needs to be matrix
 plt.scatter(X, y, color = 'red')
 plt.plot(X_grid, regressor.predict(X_grid), color = 'blue')
 plt.title('Truth or Bluff (Regression Model)')

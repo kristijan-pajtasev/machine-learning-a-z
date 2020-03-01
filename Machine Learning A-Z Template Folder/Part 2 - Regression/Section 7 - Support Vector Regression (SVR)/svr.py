@@ -8,7 +8,7 @@ import pandas as pd
 # Importing the dataset
 dataset = pd.read_csv('Position_Salaries.csv')
 X = dataset.iloc[:, 1:2].values
-y = dataset.iloc[:, 2].values
+y = dataset.iloc[:, 2:3].values
 
 # Splitting the dataset into the Training set and Test set
 """from sklearn.cross_validation import train_test_split
@@ -27,8 +27,7 @@ regressor = SVR(kernel = 'rbf')
 regressor.fit(X, y)
 
 # Predicting a new result
-y_pred = regressor.predict(6.5)
-y_pred = sc_y.inverse_transform(y_pred)
+y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(np.array([[6.5]]))))
 
 # Visualising the SVR results
 plt.scatter(X, y, color = 'red')
